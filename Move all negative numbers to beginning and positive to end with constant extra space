@@ -1,0 +1,38 @@
+import java.util.*;
+public class abc {
+
+	public static void main(String[] args) {
+		int n;
+		Scanner sc=new Scanner(System.in);
+		System.out.println("enter the size ");
+		n=sc.nextInt();
+		int a[]=new int[n];
+		int i;
+		System.out.println("enter the elements");
+		for(i=0;i<n;i++)
+			a[i]=sc.nextInt();
+		int l=0,mid=0,h=n-1,temp;
+		while(mid<=h)
+		{
+			if(a[mid]<0)
+			{
+				 temp=a[l];
+				a[l]=a[mid];
+				a[mid]=temp;
+				mid++;
+				l++;
+			}
+			else
+			{
+				 temp=a[h];
+				a[h]=a[mid];
+				a[mid]=temp;
+				mid++;
+				h--;
+			}
+		}
+       for(i=0;i<n;i++)
+    	   System.out.println(a[i]);
+	}
+
+}
