@@ -1,0 +1,15 @@
+class Solution {
+    int isPalindrome(String S) {
+        int i;
+        String w="";
+        for(i=0;i<S.length();i++)
+        {
+            char ch=S.charAt(i);
+            w=ch+w;
+        }
+        if(w.equals(S)==true)
+         return 1;
+         else
+         return 0;
+    }
+};
