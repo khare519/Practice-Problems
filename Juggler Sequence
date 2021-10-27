@@ -1,0 +1,16 @@
+class Solution{
+    static List<Integer> jugglerSequence(int N){
+       ArrayList al=new ArrayList<Integer>();
+       al.add(N);
+       while (N>1)
+       {
+           if(N%2==0)
+             N=(int)Math.pow(N,0.5);
+             else
+             N=(int)Math.pow(N,1.5);
+             al.add(N);
+       }
+       
+       return al;
+    }
+}
