@@ -1,0 +1,39 @@
+long maxSubarraySum(int arr[], int n){
+        
+        long curr=0;
+        long max=0;
+         long min=arr[0];
+         int i,c=0;
+         for(i=0;i<n;i++)
+         {
+             if(arr[i]<0)
+              c++;
+         }
+         if(c==n)
+         {
+           for(i=1;i<n;i++)
+           {
+               if(min<arr[i])
+                 min=arr[i];
+           }
+           return min;
+         }
+         
+         else
+         {
+         for(i=0;i<n;i++)
+         {
+             curr+=arr[i];
+             if(curr>max)
+              max=curr;
+              if(curr<0)
+               curr=0;
+         }
+          return max;
+        }
+         
+        
+        
+    }
+    
+}
