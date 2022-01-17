@@ -1,0 +1,13 @@
+class Solution {
+    int getPairsCount(int[] arr, int n, int k) {
+        HashMap<Integer,Integer> hm=new HashMap<>();
+        int c=0;
+        for(int i=0;i<n;i++)
+        {
+            if(hm.containsKey(k-arr[i]))
+              c+=hm.get(k-arr[i]);
+            hm.put(arr[i],hm.getOrDefault(arr[i],0)+1);  
+        }
+        return c;
+    }
+}
