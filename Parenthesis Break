@@ -1,0 +1,87 @@
+//You are given a string of brackets (, ), {, }, [, ], your job is to find the position of string where order of brackets breaks.
+
+import java.util.*;
+public class Problem2 {
+
+	public static void main(String[] args) {
+	 Scanner sc=new Scanner(System.in);
+	 String s;
+	 System.out.println("enter string");
+      s=sc.nextLine();
+      Stack<Character> st=new Stack<>();
+      int i,pos=0;
+      for(i=0;i<s.length();i++)
+      {
+    	  char ch=s.charAt(i);
+    	  if(ch=='('||ch=='{'||ch=='[')
+    	  {
+    		 pos=i;
+    		  st.push(ch);
+    	  }
+    	  else if(ch==')')
+    	  {
+    		  if(!st.isEmpty())
+    		  {
+    			  if(st.peek()=='(')
+    	    		{
+    	    			st.pop();
+    	    		}
+    	    		else
+    	    		{
+    	    			pos=i;
+    	    			break;
+    	    		}
+    		  }
+    		  else 
+    		  {
+    			  pos=i;
+    			  break;
+    		  }
+    	  }
+    	  else if(ch=='}')
+    	  {
+    		 if(!st.isEmpty())
+    		 {
+    			 if(st.peek()=='{')
+    	      		{
+    	      			st.pop();
+    	      		}
+    	      		else
+    	      		{
+    	      			pos=i;
+    	      			break;
+    	      		}
+    		 }
+    		 else 
+    		 {
+    			 pos=i;
+    			 break;
+    		 }
+    			
+    		  
+    	  }
+    	  else if(ch==']')
+    	  {
+    		  if(!st.isEmpty()) {
+    			  if(st.peek()=='[')
+    	      		{
+    	      			st.pop();
+    	      		}
+    	      		else
+    	      		{
+    	      			pos=i;
+    	      			break;
+    	      		}
+    		  }
+    		  else {
+    			  pos=i;
+    			  break;
+    		  }
+    	  }
+      }
+     
+      System.out.println(pos+1);
+      
+	}
+
+}
