@@ -1,0 +1,48 @@
+//You will be given a string of characters and special characters, you task is to reverse the string leaving special characters in same place.
+/*
+I/P 1:
+
+dsd$^f#
+
+O/P 1:
+
+fds$^d#
+*/
+
+Solution:
+
+import java.util.*;
+
+public class Problem2 {
+     
+	public static void main(String[] args) {
+		Stack<Character> st=new Stack<>();
+		Scanner sc=new Scanner(System.in);
+		String s;
+		System.out.println("enter string");
+		s=sc.nextLine();
+		int i;
+		String result="";
+		for(i=0;i<s.length();i++)
+		{
+			char ch=s.charAt(i);
+			if((ch>='a'&&ch<='z')||ch>='A'&&ch<='Z')
+			{
+				st.push(ch);
+			}
+		}
+		for(i=0;i<s.length();i++)
+		{
+			char ch=s.charAt(i);
+			if((ch>='a'&&ch<='z')||ch>='A'&&ch<='Z')
+			{
+				result+=st.pop();
+			}
+			else
+			{
+				result+=ch;
+			}
+		}
+		System.out.println(result);
+}
+}
