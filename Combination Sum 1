@@ -1,0 +1,25 @@
+class Solution {
+    public List<List<Integer>> combinationSum(int[] candidates, int target) {
+        ArrayList<Integer> ds=new ArrayList<>();
+        List<List<Integer>> result=new ArrayList<>();
+        return cSum(0,ds,candidates,target,result);
+    }
+    public List<List<Integer>> cSum(int ind, ArrayList<Integer> ds, int []arr, int target, List<List<Integer>> result){
+        if(ind==arr.length){
+            if(target==0){
+             result.add(new ArrayList<Integer>(ds));
+            }         
+           return result;
+        }
+        
+        if(arr[ind] <= target){
+          ds.add(arr[ind]);
+          cSum(ind,ds,arr,target-arr[ind],result);
+          ds.remove(ds.size()-1);
+        }
+        
+        cSum(ind+1,ds,arr,target,result);
+
+        return result;
+    }
+}
