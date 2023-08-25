@@ -1,0 +1,26 @@
+class Solution {
+    public List<List<Integer>> permute(int[] nums) {
+        List<List<Integer>> result=new ArrayList<>();
+        comb(0,nums,result);
+        return result; 
+    }
+    public void comb(int ind,int [] nums,List<List<Integer>> result){
+        if(ind==nums.length){
+            List<Integer> ds=new ArrayList<>();
+            for(int j=0;j<nums.length;j++){
+                ds.add(nums[j]);
+            }
+            result.add(new ArrayList<>(ds));
+        }
+        for(int i=ind; i<nums.length; i++){
+           swap(i,ind,nums);
+           comb(ind+1,nums,result);
+           swap(i,ind,nums);
+        }
+    }
+    public void swap(int i, int j, int nums[]){
+        int t=nums[i];
+        nums[i]=nums[j];
+        nums[j]=t;
+    }
+}
